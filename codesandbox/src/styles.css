@@ -1,0 +1,24 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.App {
+  font-family: sans-serif;
+}
+
+.search-input-container {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.commodities {
+  margin: 0 auto;
+  padding-top: 20px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
