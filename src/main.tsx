@@ -12,8 +12,8 @@ configure({
   enforceActions: 'always'
 });
 
-import './reset.css';
 import 'normalize.css';
+import './reset.css';
 import PagesRoot from '@src/pages';
 
 /**
