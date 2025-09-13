@@ -1,5 +1,6 @@
 import { Input } from 'antd';
 import { observer } from 'mobx-react';
+import SearchItem from './components/SearchItem';
 import SearchPageViewModel from './viewModel';
 import styles from './styles.module.scss';
 
@@ -19,6 +20,12 @@ function SearchPage() {
           value={viewModel.keyword}
           onChange={viewModel.onKeywordChange}
         />
+      </div>
+
+      <div className={styles.searchItems}>
+        {viewModel.list.map((item) => (
+          <SearchItem key={item.id} item={item} />
+        ))}
       </div>
     </div>
   );
