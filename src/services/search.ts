@@ -1,5 +1,6 @@
 import { FAKE_SEARCH_DATA } from '@src/constants/data';
 import { SearchItem } from '@src/constants/data';
+import { SERVER_ERROR_MESSAGE, ABORT_MESSAGES } from '@src/constants/messages';
 
 interface PostSearchParams {
   keyword: string
@@ -26,7 +27,7 @@ class SearchServes {
 
         // 隨機錯誤
         if (Math.random() > 0.9) {
-          reject(new Error('Server error'));
+          reject(new Error(SERVER_ERROR_MESSAGE.retry));
           return;
         }
 
@@ -42,13 +43,11 @@ class SearchServes {
         const hasMore = endIndex < filterFake.length;
 
         console.log('');
-        console.log('');
-        console.log('page', props.page);
+        console.log('page', page);
         console.log('hasMore', hasMore);
         console.log('startIndex', startIndex);
         console.log('endIndex', endIndex);
         console.log('filterFake', filterFake);
-        console.log('');
         console.log('');
 
         resolve({
@@ -59,10 +58,7 @@ class SearchServes {
       }, delay);
 
       const onAbort = () => {
-        console.log('中斷 API', 'abort');
-
         clearTimeout(timeout);
-
         reject(new DOMException('Aborted', 'AbortError'));
       };
 
