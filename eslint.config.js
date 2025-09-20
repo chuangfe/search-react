@@ -182,7 +182,19 @@ export default [
           allowTemplateLiterals: true
         }
       ],
-      '@stylistic/semi': ['warn', 'always']
+      '@stylistic/semi': ['warn', 'always'],
+      // interface 分號
+      '@stylistic/member-delimiter-style': [
+        'error',
+        {
+          overrides: {
+            interface: {
+              multiline: { delimiter: 'semi', requireLast: true },
+              singleline: { delimiter: 'semi', requireLast: true }
+            }
+          }
+        }
+      ]
     }
   },
   {
