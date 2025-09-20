@@ -26,6 +26,12 @@ function SearchPage() {
         {viewModel.list.map((item) => (
           <SearchItem key={item.id} item={item} />
         ))}
+
+        <div className={styles.loadMore}>
+          <div ref={viewModel.loadMoreRef}>
+            {viewModel.checks.paging ? 'Loading...' : 'Scroll to load more'}
+          </div>
+        </div>
       </div>
     </div>
   );
